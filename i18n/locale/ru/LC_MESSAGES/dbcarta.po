@@ -1,0 +1,168 @@
+# dbCarta i18n.
+# This file is distributed under the same license as the dbCarta package.
+# egax@bk.ru, 2013.
+#
+
+#: __doc__
+
+msgid "General hotkeys:"
+msgstr "Основные сочетания клавиш:"
+
+msgid "<Left Click> center view at cursor"
+msgstr "<левая кнопка мыши> центрирование карты по курсору"
+
+msgid "<Control> + <Left Click> draw figure and calculate distance"
+msgstr "<Control> + <левая кнопка мыши> рисование фигуры с подсчетом длин сторон"
+
+msgid "<Shift> + <Left Click> move view with cursor"
+msgstr "<Shift> + <левая кнопка мыши> движение/перемещение карты по курсору"
+
+msgid "<Right Click> context menu"
+msgstr "<правая кнопка мыши> контекстное меню"
+
+msgid "<Arrrows: Left-Right-Top-Bottom> scroll view"
+msgstr "<влево-вправо-вверх-вниз> прокрутка карты"
+
+msgid "<Control> + <Left-Right Arrows> rotate map around Z-axis"
+msgstr "<Control> + <влево-вправо> поворот карты относительно оси Z"
+
+msgid "<Shift> + <Arrows> turn sphere (for Globe projection)"
+msgstr "<Shift> + <влево-вправо-вверх-вниз> поворот сферы (для проекции Сфера)"
+
+msgid "<+>|<->|<Space>|<BackSpace>|<Mouse Wheel> zoom-in/out"
+msgstr "<+>|<->|<Пробел>|<BackSpace>|<Колесико> изменение масштаба"
+
+#: mopt
+
+msgid ".Arctic"
+msgstr "Полюс"
+
+msgid ".Mainland"
+msgstr "Суша"
+
+msgid ".Water"
+msgstr "Море"
+
+msgid ".WaterLine"
+msgstr "Река"
+
+msgid ".Latitude"
+msgstr "Широта"
+
+msgid ".Longtitude"
+msgstr "Долгота"
+
+msgid "DotPort"
+msgstr "Порт"
+
+msgid "Area"
+msgstr "Контур"
+
+msgid "Line"
+msgstr "Линия"
+
+msgid "Route"
+msgstr "Трасса"
+
+msgid "Figure"
+msgstr "Фигура"
+
+msgid "CurrFigure"
+msgstr "Отрезок"
+
+msgid "UserLine"
+msgstr "Указатель"
+
+#: menu
+
+msgid "Linear"
+msgstr "Линейная"
+
+msgid "Mercator"
+msgstr "Меркатор"
+
+msgid "Globe/Sphere"
+msgstr "Сфера"
+
+msgid "Projection"
+msgstr "Проекция"
+
+msgid "Forecolor: Outline..."
+msgstr "Цвет: Линии объектов..."
+
+msgid "Set transparent"
+msgstr "Установить прозрачный цвет"
+
+msgid "Backcolor..."
+msgstr "Цвет заливки..."
+
+msgid "Backcolor: Filling"
+msgstr "Заливка: Контуры объектов"
+
+msgid "All"
+msgstr "Отображения всех"
+
+msgid "Clear"
+msgstr "Очистить"
+
+msgid "Russian"
+msgstr "Русский"
+
+msgid "English"
+msgstr "Английский"
+
+msgid "Language"
+msgstr "Язык"
+
+msgid "Help"
+msgstr "Справка"
+
+msgid "Add Figure(s)..."
+msgstr "Добавить контур(ы)..."
+
+msgid "Add Figures"
+msgstr "Добавить контуры"
+
+msgid "Information %s"
+msgstr "Информация %s"
+
+msgid "Info %s"
+msgstr "Инфо %s"
+
+msgid "%s"
+msgstr "Отображение %s"
+
+#: tlist
+
+msgid "Coordinates"
+msgstr "Координаты"
+
+msgid "Longtitude"
+msgstr "Долгота"
+
+msgid "Latitude"
+msgstr "Широта"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Show"
+msgstr "Показать"
+
+#: askstring
+
+#, python-format
+msgid "Type coordinate's WKT-string: %s"
+msgstr "Введите координаты в формате WKT: %s"
+
+#: label
+
+msgid ""
+"%s\n"
+"%s km"
+msgstr ""
+"%s\n"
+"%s км"
+
+msgid "Lon %s Lat %s"
+msgstr "Д  %s  Ш  %s"

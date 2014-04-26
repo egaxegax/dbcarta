@@ -1,0 +1,19 @@
+# dbCarta Moscow Metro Demo i18n.
+# This file is distributed under the same license as the dbCarta package.
+# egax@bk.ru, 2014.
+#
+
+#: tlist
+
+msgid "Moscow Metro Map"
+msgstr "Карта метро Москвы"
+
+msgid "Station List"
+msgstr "Список станций"
+
+msgid "Name"
+msgstr "Аббр"
+
+msgid "Show"
+msgstr "Показать"
+
