@@ -6,6 +6,9 @@ EN: It used Canvas from Tkinter. Draw, color, move, zoom map and objects.
 
 RU: Карта-Навигатор с проекциями. Рисование, масштабирование объектов. 
 
+![ortho-ns.gif] (http://img-fotki.yandex.ru/get/9066/136640652.0/0_bf3ee_cde97104_orig "ortho-ns.gif")
+![ortho-ew.gif] (http://img-fotki.yandex.ru/get/9167/136640652.0/0_bf3ed_d4a4a2c3_orig "ortho-ew.gif")
+
 ## Controls
 
     <Left Click>                               center view at cursor
