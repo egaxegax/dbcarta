@@ -24,7 +24,7 @@ def create_tlist(master):
     global tlist
     tlist = TableList(fmain, 
         activestyle = 'none', 
-        columns = (0, '#', 10, _('Station'), 0, _('Name')),
+        columns = (0, '#', 10, _('Station'), 0, _('Abbr')),
         setfocus=1, 
         selectmode='extended', 
         selecttype='row', 

@@ -8,10 +8,10 @@
 msgid "Moscow Metro Map"
 msgstr "Карта метро Москвы"
 
-msgid "Station List"
-msgstr "Список станций"
+msgid "Station"
+msgstr "Станции"
 
-msgid "Name"
+msgid "Abbr"
 msgstr "Аббр"
 
 msgid "Show"

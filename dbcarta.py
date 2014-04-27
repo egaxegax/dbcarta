@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-#-*- coding: utf-8 -*-
 #
 # Python Tkinter Canvas object map. Draw, color, move, zoom map and objects.
 #
