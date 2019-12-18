@@ -3,7 +3,7 @@
 Draw stars, planets on dbCarta.
 Algorithms and stars data are taken from Marble Project at http://edu.kde.org/marble.
 Solar System bodies are calculated by "Low precision formulae" issue at http://stjarnhimlen.se/comp/ppcomp.html. 
-Sattelite's orbit computes by sgp4 module.
+Satellite orbits computes by sgp4 module.
 """
 
 __version__ = "0.5"

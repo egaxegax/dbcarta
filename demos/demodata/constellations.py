@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
 """
-Stars constellation's lines and labels.
+Stars constellations lines and labels.
 From astrokot.ru.
 """
 CLNS=[

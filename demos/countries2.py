@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-World's countries in dialog.
+World countries in dialog.
 """
 
 from __init__ import *
