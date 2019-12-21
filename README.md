@@ -31,3 +31,5 @@ RU: Карта-Навигатор с проекциями. Рисование, �
 [Cursor Coords (Подсветка координат)](https://github.com/egaxegax/dbCarta/wiki/Cursor-Coords)
 
 [Starry Sky (Звездное небо)](https://github.com/egaxegax/dbCarta/wiki/Starry-Sky)
+
+[Mosmetro (Карта Метро)](https://github.com/egaxegax/dbCarta/wiki/Mosmetro)

@@ -6,7 +6,7 @@ Simple map.
 
 from __init__ import *
 from dbcarta import *
-from demodata.continents import *
+from data.continents import *
 
 root = Tk()
 dw = dbCarta(root)

@@ -5,8 +5,8 @@ World countries.
 
 from __init__ import *
 from dbcarta import *
-from demodata.countriesd import *
-from demodata.continents import *
+from data.countriesd import *
+from data.continents import *
 
 def paint_dbcarta():
     cntrylist = list(COUNTRIES)

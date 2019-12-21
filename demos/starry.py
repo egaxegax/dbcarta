@@ -12,10 +12,10 @@ import math, sys
 import calendar, datetime, time
 from __init__ import *
 from dbcarta import *
-from demodata.continents import *
-from demodata.constellations import *
-from demodata.stars import *
-from demodata.tledata import *
+from data.continents import *
+from data.constellations import *
+from data.stars import *
+from data.tledata import *
 from utils.solar import *
 from utils.mgeo import *
 from sgp4.earth_gravity import wgs84
@@ -343,7 +343,7 @@ def setTime():
         print('setTime: ', sys.exc_info()[0], sys.exc_info()[1])
 
 root = Tk()
-root.geometry('1000x650+%s+%s' % (150, 20))
+root.geometry('1000x630+%s+%s' % (150, 10))
 dbcarta = dbCarta(root, viewportx=600, viewporty=400)
 _ = setLanguage(dbcarta.langOf(), 'starry')
 __ = setLanguage(dbcarta.langOf(), 'dbcarta')

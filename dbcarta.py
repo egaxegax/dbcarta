@@ -1,16 +1,16 @@
 #!/usr/bin/env python
 #
-# Python Tkinter Canvas object map. Draw, color, move, zoom map and objects.
+# Python 2,3 Tkinter Canvas object map. Draw, color, move, zoom map and objects.
 #
 # https://github.com/egaxegax/dbCarta.
-# egax@bk.ru, 2007-2014
+# egax@bk.ru, 2007-2019.
 """
 General hotkeys:
 <Left Click> center view at cursor
 <Control> + <Left Click> draw figure and calculate distance
 <Shift> + <Left Click> move view with cursor
 <Right Click> context menu
-<Arrrows: Left-Right-Top-Bottom> scroll view
+<Arrows: Left-Right-Top-Bottom> scroll view
 <Control> + <Left-Right Arrows> rotate map around Z-axis
 <Shift> + <Arrows> turn sphere (for Globe projection)
 <+>|<->|<Space>|<BackSpace>|<Mouse Wheel> zoom-in/out
@@ -705,7 +705,7 @@ class dbCarta:
             self.dw.coords(ftag, tuple(self.dw.coords(ftag) + points))
             self.mflood[ftag]['coords'] += coords
         elif ftext:
-            self.dw.create_text(points, anchor=self.mopt[ftype].get('anchor', 'w'), text=ftext, fill=self.mopt[ftype].get('labelcolor', 'black'), tags=(ftag, ftype))
+            self.dw.create_text(points, anchor=self.mopt[ftype].get('anchor', 'w'), text=' ' + ftext + '     ', fill=self.mopt[ftype].get('labelcolor', 'black'), tags=(ftag, ftype))
         elif fimage:
             self.dw.create_image(points, anchor=self.mopt[ftype].get('anchor', 'w'), image=fimage, tags=(ftag, ftype))
         elif self.mopt[ftype]['cls'] in ('Line'):

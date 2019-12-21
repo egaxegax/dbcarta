@@ -1,22 +1,22 @@
 #!/usr/bin/env python
 """
-Moscow Metro Map 2014.
-Ported from dbCartajs project at github.com.
+Moscow Metro Map 2019.
+Ported from https://github.com/egaxegax/dbcartajs project.
 """
 
 from __init__ import *
 from dbcarta import *
-from demodata.mosmetro import *
+from data.mosmetro import *
+
+_ = setLanguage(tr='mosmetro')
 
 def create_dbcarta(master, **kw):
-    global _
-    _ = setLanguage('', 'mosmetro')
-    global dbcarta
-    dbcarta = dbCarta(master, **kw)
-    return dbcarta
+    global dw
+    dw = dbCarta(master, **kw)
 
 def create_tlist(master):
     master.title(_('Station List'))
+    master.geometry('200x600+%s+%s' % (10, 20))
     fmain = Frame(master)
     fmain.pack(fill='both', expand=1)
     fmain.columnconfigure(0, weight=1)
@@ -24,7 +24,7 @@ def create_tlist(master):
     global tlist
     tlist = TableList(fmain, 
         activestyle = 'none', 
-        columns = (0, '#', 10, _('Station'), 0, _('Abbr')),
+        columns = (0, '#', 10, _('Station'), -1, _('Abbr')),
         setfocus=1, 
         selectmode='extended', 
         selecttype='row', 
@@ -32,49 +32,41 @@ def create_tlist(master):
         stripebackground='#e0e8f0',
         width=50)
     def exitcmd(ev):
-        dbcarta.clearLayers('UserLine')
+        dw.clearLayers('UserLine')
     def sortbycolumn(table, col):
         order = "-increasing"
         if tlist.sortcolumn() == int(col) and tlist.sortorder() == "increasing":
             order = "-decreasing"
         tlist.sortbycolumn(col, order)
     def showcoord():
-        ftype = 'UserLine'
-        dbcarta.clearLayers(ftype)
         try:    cursel = tlist.getcurselection()
         except: cursel = ()
         for row in cursel:
-            n, label, ftag = row
-            coords = dbcarta.mflood[ftag]['coords']
-            dbcarta.centerCarta(coords)
-            left, top, right, bottom = dbcarta.viewsizeOf()
-            try:    px, py = dbcarta.toPoints(coords, doscale=1)
-            except: continue
-            dbcarta.dw.create_line([left, py, right, py, px, py, px, top, px, bottom], tags=(ftype + '.1',ftype))
-            dbcarta.dw.create_text([px, py], anchor=dbcarta.mopt[ftype]['anchor'], text=str(n), tags=(ftype + '.1',ftype))
+            n, label, key = row
+            for ftag, value in dw.mflood.items():
+                if key in ftag:
+                    dw.centerCarta([value['coords'][0]])
     tlist.bind('<Destroy>', exitcmd)
     tlist.configure(labelcommand=sortbycolumn)
+    tlist.bind('<<TablelistSelect>>', (lambda event: showcoord()))
     tlist.columnconfigure(0, sortmode='integer')
     tlist.grid(column=0, row=0, sticky='nsew')
     scroll_y = Scrollbar(fmain, orient='vertical', command=tlist.yview)
     scroll_y.grid(column=1, row=0, sticky='ns')
     tlist.config(yscrollcommand=scroll_y.set)
-    fbutt = Frame(fmain)
-    fbutt.grid(column=0, row=2)
-    btadd = Button(fbutt, text=_('Show'), command=showcoord)
-    btadd.grid(column=0, row=0)
 
 def fill_tlist():
-    for ftag, value in dbcarta.mflood.items():
-        if dbcarta.mopt[value['ftype']]['cls'] == 'Dot' and ftag[5] == 's':
-            if value.get('label'):
-                tlist.insert('end', tuple([tlist.index('end'), value['label'], ftag]))
+    for row in MSTATIONS:
+        key, label = row[1], row[1]
+        if len(row) > 3 and row[3]:
+            label = row[3]
+        tlist.insert('end', tuple([tlist.index('end'), label, key]))
 
 if __name__ == '__main__':
     root = Tk()
-    root.geometry('1000x600+%s+%s' % (100, 20))
-    dw = create_dbcarta(root, bg='white', viewportx=450, viewporty=450)
+    root.geometry('1000x600+%s+%s' % (220, 20))
     root.title(_('Moscow Metro Map'))
+    create_dbcarta(root, bg='white', viewportx=450, viewporty=450)
     dw.slider.var.set(dw.slider.var.get() * 2.0)
     dw.scaleCarta()
     dw.centerCarta()
@@ -123,7 +115,7 @@ if __name__ == '__main__':
     })
     # rivers
     dw.mopt.update({
-        'moskva_canal': river({'width': 5, 'rotate': -90}),
+        'moskva_canal': river({'width': 5, 'rotate': -90, 'anchor': 'e'}),
         'strogino_lake_exit': river({'cls': 'Polygon', 'bg': river({})['fg'], 'width': 5}),
         'vodootvodny_canal': river({'width': 5}),
         'yauza_river': river({'width': 5, 'rotate': 45, 'anchor': 'nw'}),

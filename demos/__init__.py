@@ -4,7 +4,7 @@ Init path to module dbCarta and demos.
 
 import sys, os
 
-DEMOPATH = os.path.dirname(sys.argv[0])
-if DEMOPATH: DEMOPATH = DEMOPATH + '/'
-sys.path.insert(0, os.path.abspath(DEMOPATH))
-sys.path.insert(0, os.path.abspath(DEMOPATH + '../'))
+d = os.path.dirname(sys.argv[0])
+if d: d = d + '/'
+sys.path.insert(0, os.path.abspath(d))
+sys.path.insert(0, os.path.abspath(d + '../'))
