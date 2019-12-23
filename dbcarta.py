@@ -705,7 +705,7 @@ class dbCarta:
             self.dw.coords(ftag, tuple(self.dw.coords(ftag) + points))
             self.mflood[ftag]['coords'] += coords
         elif ftext:
-            self.dw.create_text(points, anchor=self.mopt[ftype].get('anchor', 'w'), text=' ' + ftext + '     ', fill=self.mopt[ftype].get('labelcolor', 'black'), tags=(ftag, ftype))
+            self.dw.create_text(points, anchor=self.mopt[ftype].get('anchor', 'w'), text=' ' + ftext + '   ', fill=self.mopt[ftype].get('labelcolor', 'black'), tags=(ftag, ftype))
         elif fimage:
             self.dw.create_image(points, anchor=self.mopt[ftype].get('anchor', 'w'), image=fimage, tags=(ftag, ftype))
         elif self.mopt[ftype]['cls'] in ('Line'):

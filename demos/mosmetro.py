@@ -66,6 +66,7 @@ if __name__ == '__main__':
     root = Tk()
     root.geometry('1000x600+%s+%s' % (220, 20))
     root.title(_('Moscow Metro Map'))
+    root.protocol('WM_DELETE_WINDOW', root.quit)
     create_dbcarta(root, bg='white', viewportx=450, viewporty=450)
     dw.slider.var.set(dw.slider.var.get() * 2.0)
     dw.scaleCarta()
@@ -152,13 +153,13 @@ if __name__ == '__main__':
         's3': station({'fg': dw.mopt['r3']['fg'], 'anchor': 'w'}),
         's3_1': station({'fg': dw.mopt['r3']['fg'], 'anchor': 'e'}),
         's3_2': station({'fg': dw.mopt['r3']['fg'], 'anchor': 'ne'}),
-        's3_3': inst({'fg': dw.mopt['r3']['fg'], 'anchor': 'sw'}),
+        's3_3': inst({'fg': dw.mopt['r3']['fg'], 'anchor': 'se'}),
         's3_4': inst({'fg': dw.mopt['r3']['fg'], 'anchor': 'sw'}),
         's3_5': inst({'fg': dw.mopt['r3']['fg'], 'anchor': 'ne'}),
         's3_6': inst({'fg': dw.mopt['r3']['fg'], 'anchor': 'w'}),
         's3_6': inst({'fg': dw.mopt['r3']['fg'], 'anchor': 'e'}),
         's4': station({'fg': dw.mopt['r4']['fg']}),
-        's4_1': station({'fg': dw.mopt['r4']['fg'], 'anchor': 'ne'}),
+        's4_1': station({'fg': dw.mopt['r4']['fg'], 'anchor': 'e'}),
         's4_2': inst({'fg': dw.mopt['r4']['fg'], 'anchor': 'e'}),
         's4_3': station({'fg': dw.mopt['r4']['fg'], 'anchor': 'sw'}),
         's4_4': inst({'fg': dw.mopt['r4']['fg'], 'anchor': 'ne'}),
@@ -200,8 +201,9 @@ if __name__ == '__main__':
         's10_2': inst({'fg': dw.mopt['r10']['fg'], 'anchor': 'w'}),
         's10_3': inst({'fg': dw.mopt['r10']['fg'], 'anchor': 'ne'}),
         's10_4': inst_d({'fg': dw.mopt['r10']['fg']}),
+        's10_5': station({'fg': dw.mopt['r10']['fg'], 'anchor': 'nw'}),
         's11': station({'fg': dw.mopt['r11']['fg'], 'anchor': 's'}),
-        's11_1': inst({'fg': dw.mopt['r11']['fg'], 'anchor': 'nw'}),
+        's11_1': inst({'fg': dw.mopt['r11']['fg'], 'anchor': 'n'}),
         's11_2': inst_d({'fg': dw.mopt['r11']['fg']}),
         's12': station({'fg': dw.mopt['r12']['fg'], 'anchor': 's'}),
         's12_1': station({'fg': dw.mopt['r12']['fg'], 'anchor': 'n'}),
@@ -212,7 +214,7 @@ if __name__ == '__main__':
         'sTPK': station({'fg': dw.mopt['rTPK']['fg'], 'anchor': 'nw'}),
         'sTPK_1': station({'fg': dw.mopt['rTPK']['fg'], 'anchor': 'sw'}),
         'sTPK_2': station({'fg': dw.mopt['rTPK']['fg'], 'anchor': 'e'}),
-        'sTPK_3': inst({'fg': dw.mopt['rTPK']['fg'], 'anchor': 'w'}),
+        'sTPK_3': inst({'fg': dw.mopt['rTPK']['fg'], 'anchor': 'sw'}),
         'sTPK_4': inst({'fg': dw.mopt['rTPK']['fg'], 'anchor': 'sw'}),
         'sTPK_5': inst_d({'fg': dw.mopt['rTPK']['fg']}),
         'sTPK_6': station({'fg': dw.mopt['rTPK']['fg'], 'anchor': 's'}),
@@ -231,3 +233,4 @@ if __name__ == '__main__':
     create_tlist(master)
     fill_tlist()
     root.mainloop()
+    root.destroy()
