@@ -1,9 +1,14 @@
 dbCarta
 =========
 
-Python 2, 3 Tkinter Canvas object map. Draw, color, move, zoom map and objects.
+Python 2, 3 Tkinter Canvas object map. Draw, color, move, zoom map and objects with projections.
+RU: Карта-Навигатор с проекциями. Рисование, масштабирование объектов в разных проекциях. 
 
-RU: Карта-Навигатор с проекциями. Рисование, масштабирование объектов. 
+Projections (Проекции):
+
+* LongLat
+* Mercator
+* Ortho (Globe)
 
 ## Controls
 
