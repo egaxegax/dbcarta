@@ -31,8 +31,6 @@ def create_tlist(master):
         stretch = 'all',
         stripebackground='#e0e8f0',
         width=50)
-    def exitcmd(ev):
-        dw.clearLayers('UserLine')
     def sortbycolumn(table, col):
         order = "-increasing"
         if tlist.sortcolumn() == int(col) and tlist.sortorder() == "increasing":
@@ -46,7 +44,6 @@ def create_tlist(master):
             for ftag, value in dw.mflood.items():
                 if key in ftag:
                     dw.centerCarta([value['coords'][0]])
-    tlist.bind('<Destroy>', exitcmd)
     tlist.configure(labelcommand=sortbycolumn)
     tlist.bind('<<TablelistSelect>>', (lambda event: showcoord()))
     tlist.columnconfigure(0, sortmode='integer')

@@ -3,7 +3,7 @@
 # Python 2,3 Tkinter Canvas object map. Draw, color, move, zoom map and objects.
 #
 # https://github.com/egaxegax/dbCarta.
-# egax@bk.ru, 2007-2019.
+# egax@bk.ru, 2007-2020.
 """
 General hotkeys:
 <Left Click> center view at cursor
@@ -16,7 +16,7 @@ General hotkeys:
 <+>|<->|<Space>|<BackSpace>|<Mouse Wheel> zoom-in/out
 """
 
-__version__ =  "3.3"
+__version__ =  "200119"
 
 import sys, re
 from math import *
@@ -126,7 +126,7 @@ class dbCarta:
         self.menu['menu.langmenu'].add_radiobutton(label=_('English'), command=lambda: self.lang('en'))
         self.menu['menu'].add_cascade(label=_('Language'), menu=self.menu['menu.langmenu'])
         self.menu['menu'].add_command(label=_('Help'), command=lambda: showinfo(title='dbCarta v' + __version__,
-                                                                                message='\n\n'.join( [ _(x) for x in __doc__.strip('\n').split('\n') ] )))
+                                                                                message=_(__doc__ ) ))
         # add dynmenu
         k = {}
         for i, x in enumerate(dynmenu):

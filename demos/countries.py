@@ -64,18 +64,17 @@ def create_tlist(master):
     scroll_y.grid(column=1, row=0, sticky='ns')
     tlist.config(yscrollcommand=scroll_y.set)
 
+    fbutt = Frame(fmain)
+    fbutt.grid(column=0, row=1)
     global check_legend_var
     check_legend_var = IntVar()
     check_legend_var.set(1)
-    check_legend = Checkbutton(fmain, text=_('With icon'), variable=check_legend_var)
-    check_legend.grid(column=0,row=1)
-
-    fbutt = Frame(fmain)
-    fbutt.grid(column=0, row=2)
-    btadd = Button(fbutt, text=_('Show'), command=paint_dbcarta)
-    btadd.grid(column=0, row=0)
+    check_legend = Checkbutton(fbutt, text=_('Flag'), variable=check_legend_var)
+    check_legend.grid(column=0,row=0)
+    btadd = Button(fbutt, text=_('Add'), command=paint_dbcarta)
+    btadd.grid(column=1, row=0)
     btcls = Button(fbutt, text=_('Remove'), command=clear_dbcarta)
-    btcls.grid(column=1, row=0)
+    btcls.grid(column=2, row=0)
 
 def fill_tlist():
     """Fill country list."""
@@ -87,7 +86,7 @@ def fill_tlist():
     for i, name in enumerate(cntrylist):
         short_name = COUNTRIES[name][0][2]
         try:
-            icons[short_name] = PhotoImage(file=os.path.join(DEMOPATH, 'demodata', 'flags', short_name.lower() + '.gif'))
+            icons[short_name] = PhotoImage(file=os.path.join('data', 'flags', short_name.lower() + '.gif'))
         except:
             pass
         tlist.insert('end', tuple([i, _(name), short_name]))

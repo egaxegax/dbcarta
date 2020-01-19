@@ -5,32 +5,27 @@
 
 #: __doc__
 
-msgid "General hotkeys:"
-msgstr "Основные сочетания клавиш:"
+msgid "\n"
+"General hotkeys:\n"
+"<Left Click> center view at cursor\n"
+"<Control> + <Left Click> draw figure and calculate distance\n"
+"<Shift> + <Left Click> move view with cursor\n"
+"<Right Click> context menu\n"
+"<Arrows: Left-Right-Top-Bottom> scroll view\n"
+"<Control> + <Left-Right Arrows> rotate map around Z-axis\n"
+"<Shift> + <Arrows> turn sphere (for Globe projection)\n"
+"<+>|<->|<Space>|<BackSpace>|<Mouse Wheel> zoom-in/out\n"
 
-msgid "<Left Click> center view at cursor"
-msgstr "<левая кнопка мыши> центрирование карты по курсору"
-
-msgid "<Control> + <Left Click> draw figure and calculate distance"
-msgstr "<Control> + <левая кнопка мыши> рисование фигуры с подсчетом длин сторон"
-
-msgid "<Shift> + <Left Click> move view with cursor"
-msgstr "<Shift> + <левая кнопка мыши> движение/перемещение карты по курсору"
-
-msgid "<Right Click> context menu"
-msgstr "<правая кнопка мыши> контекстное меню"
-
-msgid "<Arrrows: Left-Right-Top-Bottom> scroll view"
-msgstr "<влево-вправо-вверх-вниз> прокрутка карты"
-
-msgid "<Control> + <Left-Right Arrows> rotate map around Z-axis"
-msgstr "<Control> + <влево-вправо> поворот карты относительно оси Z"
-
-msgid "<Shift> + <Arrows> turn sphere (for Globe projection)"
-msgstr "<Shift> + <влево-вправо-вверх-вниз> поворот сферы (для проекции Сфера)"
-
-msgid "<+>|<->|<Space>|<BackSpace>|<Mouse Wheel> zoom-in/out"
-msgstr "<+>|<->|<Пробел>|<BackSpace>|<Колесико> изменение масштаба"
+msgstr "\n"
+"Основные сочетания клавиш:\n"
+"<левая кнопка мыши> центрирование карты по курсору\n"
+"<Control> + <левая кнопка мыши> рисование фигуры с подсчетом длин сторон\n"
+"<Shift> + <левая кнопка мыши> движение/перемещение карты по курсору\n"
+"<правая кнопка мыши> контекстное меню\n"
+"<влево-вправо-вверх-вниз> прокрутка карты\n"
+"<Control> + <влево-вправо> поворот карты относительно оси Z\n"
+"<Shift> + <влево-вправо-вверх-вниз> поворот сферы (для проекции Сфера)\n"
+"<+>|<->|<Пробел>|<BackSpace>|<Колесико> изменение масштаба\n"
 
 #: mopt
 

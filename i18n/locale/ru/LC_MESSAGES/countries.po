@@ -16,14 +16,11 @@ msgstr "Флаг"
 
 #: label
 
-msgid "Show"
+msgid "Add"
 msgstr "Добавить"
 
 msgid "Remove"
 msgstr "Убрать"
-
-msgid "With icon"
-msgstr "С иконкой"
 
 #: countries names
 

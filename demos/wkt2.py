@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-#-*- coding: utf8 -*-
 """
 Well-Known Text (WKT) coordinates format usage.
 Brazil cities.

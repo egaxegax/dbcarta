@@ -7,6 +7,7 @@ from __init__ import *
 from countries import *
 
 root = Tk()
+root.title('Country')
 create_tlist(root)
 fill_tlist()
 

@@ -350,16 +350,7 @@ __ = setLanguage(dbcarta.langOf(), 'dbcarta')
 root.title(_('Starry Sky on Canvas'))
 f = Frame(root)
 f.pack(fill='both')
-Button(f, bitmap='hourglass', foreground=rgb(150,50,55), command=lambda : setTime() or renderSky()).pack(side='right')
-help_var = StringVar()
-help_var.set( '\n'.join( [
-              _('Turn, Move Starry Sky') + ':',
-              '    ' + __('<Shift> + <Arrows> turn sphere (for Globe projection)'),
-              '    ' + __('<Shift> + <Left Click> move view with cursor'),
-              _('View body info') + ':',
-              '    ' + __('<Right Click> context menu')] ) )
-Button(f, bitmap='questhead', foreground='blue', command=lambda: showinfo(title='Starry Sky v' + __version__,
-                                                                          message=help_var.get())).pack(side='right')
+Button(f, text='T', foreground=rgb(150,50,55), command=lambda : setTime() or renderSky()).pack(side='right')
 tmsg_var = StringVar()
 Label(f, textvariable=tmsg_var, anchor='w', justify='left').pack(fill='both')
 starry = Starry()
