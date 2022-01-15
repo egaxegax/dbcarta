@@ -2,13 +2,13 @@
 #
 # Python 2,3 Tkinter Canvas object map. Draw, color, move, zoom map and objects.
 #
-# https://github.com/egaxegax/dbCarta.
-# egax@bk.ru, 2007-2020.
+# https://github.com/egaxegax/dbcarta.
+# egax@bk.ru, 2007-2022.
+
 """
 General hotkeys:
-<Left Click> center view at cursor
 <Control> + <Left Click> draw figure and calculate distance
-<Shift> + <Left Click> move view with cursor
+<Left Click> + <Move> move view with cursor
 <Right Click> context menu
 <Arrows: Left-Right-Top-Bottom> scroll view
 <Control> + <Left-Right Arrows> rotate map around Z-axis
@@ -16,7 +16,7 @@ General hotkeys:
 <+>|<->|<Space>|<BackSpace>|<Mouse Wheel> zoom-in/out
 """
 
-__version__ =  "200119"
+__version__ =  "220115"
 
 import sys, re
 from math import *
@@ -84,7 +84,7 @@ class dbCarta:
           VIEWPORTY scroll height in degrees."""
         self.lang()
         master.protocol('WM_DELETE_WINDOW', master.quit)
-        master.title('dbCarta')
+        master.title('Tk Widget dbCarta')
         parent = Frame(master)
         parent.pack(fill='both', expand=1)
         parent.columnconfigure(0, weight=1)
@@ -144,7 +144,7 @@ class dbCarta:
         self.master.bind('<Control-Key>', self.__master_keyPressCtrl)
         self.master.bind('<Shift-Key>', self.__master_keyPressShift)
         # Slider widget for scale
-        self.slider = Scale(self.parent, label=_('Coordinates'), orient='horizontal',
+        self.slider = Scale(self.parent, label=_('Lon Lat'), orient='horizontal', showvalue=0,
                             from_=0.0005, to=1.0, resolution=0.0005, command=self.scaleCarta)
         self.slider.var = DoubleVar()
         self.slider.config(variable=self.slider.var)
@@ -163,12 +163,9 @@ class dbCarta:
         self.dw.grid(column=0, row=1, sticky='nsew')
         self.dw.bind('<Button>', self.__dw_mouseDown)
         self.dw.bind('<Control-Button-1>', self.__dw_mouseDownCtrl)
-        self.dw.bind('<Shift-Button-1>', self.__dw_mouseDownShift)
         self.dw.bind('<ButtonRelease-1>', self.__dw_mouseUp)
         self.dw.bind('<Control-ButtonRelease-1>', self.__dw_mouseUpCtrl)
-        self.dw.bind('<Shift-ButtonRelease-1>', self.__dw_mouseUpShift)
         self.dw.bind('<Motion>', self.__dw_mouseMove)
-        self.dw.bind('<Shift-Motion>', self.__dw_mouseMoveShift)
 
     def __listCoords(self, title, ftag, x, y):
         """Show tablelist with object coords.
@@ -321,13 +318,12 @@ class dbCarta:
             self.__dw_mouseDownCtrl(ev)
             self.__temp.pop('Figure', '')
             self.clearCarta('CurrFigure')
-        elif ev.num == 1:  # center click
-            coords = self.fromPoints((x, y), dosphere=1)
-            if coords and self.isSpherical():
-                self.__temp['centerof'] = coords
-                self.changeProject(self.project)
-            else:
-                self.centerCarta(coords)
+        elif ev.num == 1: 
+            # remember visible center for move
+            self.__temp['shift'] = [ ev, 
+                [ self.dw.winfo_width() / 2.0,
+                  self.dw.winfo_height() / 2.0 ],
+                self.centerOf() ]
         elif ev.num == 3:  # add dynmenu
             pmsg = """
             POINT(0 0)
@@ -371,15 +367,6 @@ class dbCarta:
             self.__temp['Figure'] = [0, 0, self.fromPoints([x, y], dosphere=1), self.freeTag('Figure')]
             self.loadCarta( [('Figure', self.__temp['Figure'][3], str(self.__temp['Figure'][2]))] )
 
-    def __dw_mouseDownShift(self, ev):
-        """Shift + MouseDown callback."""
-        if ev.num == 1:
-            # remember visible center
-            self.__temp['shift'] = [ ev, 
-                [ self.dw.winfo_width() / 2.0,
-                  self.dw.winfo_height() / 2.0 ],
-                self.centerOf() ]
-
     def __dw_mouseMove(self, ev):
         """MouseMove callback."""
         x, y = self.dw.canvasx(ev.x), self.dw.canvasy(ev.y)
@@ -391,13 +378,7 @@ class dbCarta:
                 self.__temp['Figure'][0] = self.distance(coords)
                 self.paintCarta(coords, 'CurrFigure', 'CurrFigure.1')
                 self.paintCarta([coords[1]], 'CurrFigure', '.CurrFigure.1', _('%s\n%s km') % tuple(self.__temp['Figure'][:2]))
-        # calc and show coords under cursor
-        coords = self.fromPoints((x, y), dosphere=1) or [('', '')]
-        self.slider.config(label=_('Lon %s Lat %s') % (str(coords[0][0]), str(coords[0][1])))
-
-    def __dw_mouseMoveShift(self, ev):
-        """Shift + MouseMove callback."""
-        if 'shift' in self.__temp:
+        elif 'shift' in self.__temp:
             pts = [ self.dw.canvasx(self.__temp['shift'][1][0] - (ev.x - self.__temp['shift'][0].x)),
                     self.dw.canvasy(self.__temp['shift'][1][1] - (ev.y - self.__temp['shift'][0].y)) ]
             if self.isSpherical():
@@ -412,20 +393,18 @@ class dbCarta:
                 self.centerPoint(*pts)
                 self.__temp['shift'][0] = ev
             self.clfunc()
+        # calc and show coords under cursor
+        coords = self.fromPoints((x, y), dosphere=1) or [('', '')]
+        self.slider.config(label=_('Lon %s Lat %s') % (str(coords[0][0]), str(coords[0][1])))
 
     def __dw_mouseUp(self, ev):
         """MouseUp callback."""
+        self.__temp.pop('shift', '')
         self.labelPoint()
         self.clfunc()
 
     def __dw_mouseUpCtrl(self, ev):
         """Control + MouseUp callback."""
-        self.clfunc()
-
-    def __dw_mouseUpShift(self, ev):
-        """Shift + MouseUp callback."""
-        self.__temp.pop('shift', '')
-        self.labelPoint()
         self.clfunc()
 
     #-------------------------------------
