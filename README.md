@@ -23,18 +23,18 @@ Projections (Проекции):
 
 ## Screenshots
 
+[Mosmetro (Карта Метро)](https://github.com/egaxegax/dbcarta/wiki/Mosmetro)
+
+[Starry Sky (Звездное небо)](https://github.com/egaxegax/dbcarta/wiki/Starry-Sky)
+
+[Cursor Coords (Подсветка координат)](https://github.com/egaxegax/dbcarta/wiki/Cursor-Coords)
+
+[Colorized (Разные цвета)](https://github.com/egaxegax/dbcarta/wiki/Colorized)
+
+[With Images (Вывод картинок)](https://github.com/egaxegax/dbcarta/wiki/With-Images)
+
 [Globe Projection (Проекция Сфера/Глобус)](https://github.com/egaxegax/dbcarta/wiki/Globe-Projection)
 
 [Mercator Projection (Проекция Меркатор)](https://github.com/egaxegax/dbcarta/wiki/Mercator-Projection)
 
 [LinearProjection (Плоская проекция)](https://github.com/egaxegax/dbcarta/wiki/Linear-Projection)
-
-[With Images (Вывод картинок)](https://github.com/egaxegax/dbcarta/wiki/With-Images)
-
-[Colorized (Разные цвета)](https://github.com/egaxegax/dbcarta/wiki/Colorized)
-
-[Cursor Coords (Подсветка координат)](https://github.com/egaxegax/dbcarta/wiki/Cursor-Coords)
-
-[Starry Sky (Звездное небо)](https://github.com/egaxegax/dbcarta/wiki/Starry-Sky)
-
-[Mosmetro (Карта Метро)](https://github.com/egaxegax/dbcarta/wiki/Mosmetro)
