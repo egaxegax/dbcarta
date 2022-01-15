@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 """
 List with coords of Moscow Metro lines and stations in 2019.
 Ported from dbcartajs project at github.com.

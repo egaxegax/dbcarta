@@ -16,7 +16,7 @@ def create_dbcarta(master, **kw):
 
 def create_tlist(master):
     master.title(_('Stations'))
-    master.geometry('200x800+%s+%s' % (10, 20))
+    master.geometry('200x700+%s+%s' % (10, 20))
     fmain = Frame(master)
     fmain.pack(fill='both', expand=1)
     fmain.columnconfigure(0, weight=1)
@@ -60,7 +60,7 @@ def fill_tlist():
         tlist.insert('end', tuple([tlist.index('end'), label, key]))
 
 root = Tk()
-root.geometry('1000x800+%s+%s' % (220, 20))
+root.geometry('1000x700+%s+%s' % (220, 20))
 root.protocol('WM_DELETE_WINDOW', root.quit)
 create_dbcarta(root, bg='white', viewportx=450, viewporty=450)
 root.title('Moscow Metro 2022')
