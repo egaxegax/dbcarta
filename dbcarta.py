@@ -121,10 +121,6 @@ class dbCarta:
         self.menu['menu.clrmenu'].add_command(label=_('All'), command=lambda: self.clearLayers(*self.mopt.keys()))
         self.menu['menu'].add_cascade(label=_('Clear'), menu=self.menu['menu.clrmenu'])
         self.menu['menu'].add_separator()
-        self.menu['menu.langmenu'] = Menu(self.menu['menu'], tearoff=0)
-        self.menu['menu.langmenu'].add_radiobutton(label=_('Russian'), command=lambda: self.lang('ru'))
-        self.menu['menu.langmenu'].add_radiobutton(label=_('English'), command=lambda: self.lang('en'))
-        self.menu['menu'].add_cascade(label=_('Language'), menu=self.menu['menu.langmenu'])
         self.menu['menu'].add_command(label=_('Help'), command=lambda: showinfo(title='dbCarta v' + __version__,
                                                                                 message=_(__doc__ ) ))
         # add dynmenu
@@ -546,6 +542,7 @@ class dbCarta:
                         self.paintCarta([[center_x + d, center_y]], ftype, __ftag, fimage=icon) ; d = icon.width() * _d
                     self.paintCarta([[center_x + d, center_y]], ftype, _ftag, ftext=label)
 
+    """Set language from locale .po files"""
     def lang(self, lang=''):
         global _
         self.__lang = lang
