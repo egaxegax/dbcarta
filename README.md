@@ -21,7 +21,7 @@ Projections (*Проекции*):
 ## Screenshots
 
 <details>
-<summary>Moscow Metro (*Карта Метро*)</summary>
+<summary>Moscow Metro (<i>Карта Метро</i>)</summary>
 <img src="https://content.foto.my.mail.ru/bk/egax/76/h-82.jpg" title="Moscow Metro 2022" alt="No image">
 </details>
 
